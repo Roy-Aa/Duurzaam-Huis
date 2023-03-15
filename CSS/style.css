@@ -26,6 +26,14 @@ header{
     border: 1px solid black;
 }
 
+.tijdflak{
+    margin-left: 40px;
+    margin-top: 14px;
+    overflow: hidden;
+    border: hidden;
+    width: 60px;
+}
+
 .boventijd{
     width: 280px;
     height: 100px;
@@ -47,6 +55,7 @@ header{
     border: 1px solid black;
     margin-left: 70px;
     margin-top: 25px;
+    
 }
 
 .binnentijd2{
