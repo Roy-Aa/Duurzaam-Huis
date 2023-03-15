@@ -8,31 +8,50 @@
     <script src="JS/main.js"></script>
     <title>💻 Duurzaam huis</title>
 </head>
+<style>
+    input {
+        border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: hidden;
+        background-color: white;
+      }
+      
+      .no-outline:focus {
+        outline: none;
+      } 
+</style>
+
 <body onload="gettime()">
     <header>
         <img class="logo" src="MicrosoftTeams-image.png" alt="">
     </header>
     <article class="tijd">
-        <div class="middenblock"></div>
+        <div class="middenblock">
+        </div>
         <div id="js--time" class="boventijd">
-            <div class="binnentijd"></div>
+            <div class="binnentijd">
+                <form class="tijdflak" name="clockform">
+                    <input type="text" name="clock">
+                </form>
+            </div>
         </div>
         <div id="js--day" class="ondertijd">
             <div class="binnentijd2"></div>
        </div>
     </article>
+
+    
 </body>
 
 <script>
-    
-
     // Datum
     var curday = function(sp){
     today = new Date();
     var dd = today.getDate();
     var mm = today.getMonth()+1; 
     var yyyy = today.getFullYear();
-
+        
     if(dd<10) dd='0'+dd;
     if(mm<10) mm='0'+mm;
     return (dd+sp+mm+sp+yyyy);
@@ -42,6 +61,7 @@
 </script>
 
 <script language="JavaScript">
+    //Time
     function gettime() {
         var date= new Date();
         var hr = date.getHours();
@@ -58,6 +78,5 @@
         document.clockform.clock.value = hr + ":" + m + ":" + s;
         setTimeout("gettime()",100)
     }
-    </script>
-
+</script>
 </html>
