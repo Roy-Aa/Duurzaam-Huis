@@ -106,3 +106,64 @@ header{
     border-top: 1px solid black;
     margin-top: 328px;
 }
+
+/*Form invulling*/
+
+.form2{
+    width:40rem;
+    min-height:40rem;
+    background:#4974A0;
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    padding:4rem;
+    font-size:2rem;
+    gap:2rem;
+    border-radius:5px;
+    position:absolute;
+    left:65%;
+    top:23%;
+    height:400px;
+}
+
+form label{
+    border-bottom:2px solid #3faa75;
+    color:white;
+}
+
+form div{
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+}
+
+input{
+    display:block;
+    width:30ch;
+    padding:1rem 2rem;
+    font-size:1rem;
+    border:1px solid black;
+    resize:none;
+}
+
+textarea{
+    height:13ch;
+    width:100%;
+    font-size:1.6rem;
+    border:1px solid rgb(0, 0, 0);
+    font-family: sans-serif;
+    padding:1rem 2rem;
+    resize:none;
+    background:#EEEEEE;
+}
+
+.submit{
+    background:#3faa75;
+    color:#ffffff;
+    font-size:1.6rem;
+    border:none;
+}
+
+.submit:hover{
+    cursor:pointer;
+}
