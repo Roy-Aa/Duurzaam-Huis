@@ -61,4 +61,5 @@ header{
     width: 100px;
     height: 27px;
     border: 1px solid black;
+    display: flex;
 }
