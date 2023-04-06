@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Duurzaam huis</title>
+    <title>⚡ RKC-ENERGY</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -25,14 +25,18 @@
             <article class="box box2">
                 <canvas id="js--chart--1"></canvas>
             </article>
-            <article class="box box3"></article>
+            <article class="box box3">
+                
+            </article>
             <article class="box box4"></article>
         </section>
         <section class="prima">
             <article class="longbox longbox1">
                 <canvas id="js--chart--2"></canvas>
             </article>
-            <article class="longbox longbox2"></article>
+            <article class="longbox longbox2">
+                <canvas id="js--chart--3"></canvas>
+            </article>
         </section>
     </main>
 </body>
@@ -55,9 +59,7 @@
     };
    
     document.getElementById("js--day").innerHTML = curday('-')
-</script>
 
-<script>
     var dt = new Date();
     document.getElementById("datetime").innerHTML = dt.toLocaleTimeString();
 
@@ -105,7 +107,12 @@ const config2 = {
     type:'bar',
     data: data2,
 }
+const config3 = {
+    type:'line',
+    data: data2,
+}
 new Chart(document.getElementById("js--chart--1"), config)
 new Chart(document.getElementById("js--chart--2"), config2)
+new Chart(document.getElementById("js--chart--3"), config3)
 </script>
 </html>
