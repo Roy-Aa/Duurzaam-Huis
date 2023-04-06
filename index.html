@@ -4,16 +4,108 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/style.css">
-    <script src="JS/main.js"></script>
-    <title>💻 Duurzaam huis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Duurzaam huis</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
-
+        <p>RKC-ENERGY</p>
     </header>
-    <div>
-        
-    </div>
+    <main class="dash">
+        <section class="marco">
+            <article class="box box1">
+                <div class="box1-blok1" id="js--day"></div>
+                <div class="box1-blok2" id="datetime"></div>
+            </article>
+            <article class="box box2">
+                <canvas id="js--chart--1"></canvas>
+            </article>
+            <article class="box box3"></article>
+            <article class="box box4"></article>
+        </section>
+        <section class="prima">
+            <article class="longbox longbox1">
+                <canvas id="js--chart--2"></canvas>
+            </article>
+            <article class="longbox longbox2"></article>
+        </section>
+    </main>
 </body>
+
+    
+<script>
+    // JAVASCRIPT
+
+
+    // Datum
+    var curday = function(sp){
+    today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; 
+    var yyyy = today.getFullYear();
+        
+    if(dd<10) dd='0'+dd;
+    if(mm<10) mm='0'+mm;
+    return (dd+sp+mm+sp+yyyy);
+    };
+   
+    document.getElementById("js--day").innerHTML = curday('-')
+</script>
+
+<script>
+    var dt = new Date();
+    document.getElementById("datetime").innerHTML = dt.toLocaleTimeString();
+
+    const labels = [
+    "Douche",
+    "Kraan",
+    "WC",
+    "Overige",
+];
+const data = {
+    labels: labels,
+    datasets: [{
+    
+        label:'Liters',
+    
+        backgroundColor:['#002B5B','#1A5F7A', '#159895', '#57C5B6',],
+        data: [5, 10, 5, 2]
+    }]
+};
+const labels2 = [
+    "Maandag",
+    "Dinsdag",
+    "Woensdag",
+    "Donderdag",
+    "Vrijdag",
+    "Zaterdag",
+    "Zondag",
+]
+const data2 = {
+    labels: labels2,
+    datasets: [{
+    
+        label:'Stroomverbruik',
+    
+        backgroundColor:['#0E8388','#2E4F4F', '#CBE4DE', '#2C3333', '#2E4F4F', '#CBE4DE', '#0E8388',],
+        data: [12, 6, 8, 4, 9, 3, 7,]
+    }]
+};
+const config = {
+    type: 'doughnut',
+    data: data,
+   
+};
+const config2 = {
+    type:'bar',
+    data: data2,
+}
+new Chart(document.getElementById("js--chart--1"), config)
+new Chart(document.getElementById("js--chart--2"), config2)
+</script>
 </html>
