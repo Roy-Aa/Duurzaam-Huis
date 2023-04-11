@@ -20,7 +20,7 @@
         <section class="marco">
             <article class="box box1">
                 <div class="box1-blok1" id="js--day"></div>
-                <div class="box1-blok2" id="datetime"></div>
+                <div class="box1-blok2" id="js--time"></div>
             </article>
             <article class="box box2">
                 <canvas id="js--chart--1"></canvas>
@@ -45,7 +45,6 @@
 <script>
     // JAVASCRIPT
 
-
     // Datum
     var curday = function(sp){
     today = new Date();
@@ -61,7 +60,7 @@
     document.getElementById("js--day").innerHTML = curday('-')
 
     var dt = new Date();
-    document.getElementById("datetime").innerHTML = dt.toLocaleTimeString();
+    document.getElementById("js--time").innerHTML = dt.toLocaleTimeString();
 
     const labels = [
     "Douche",
@@ -69,6 +68,7 @@
     "WC",
     "Overige",
 ];
+
 const data = {
     labels: labels,
     datasets: [{
@@ -94,8 +94,8 @@ const data2 = {
     
         label:'Stroomverbruik',
     
-        backgroundColor:['#0E8388','#2E4F4F', '#CBE4DE', '#2C3333', '#2E4F4F', '#CBE4DE', '#0E8388',],
-        data: [12, 6, 8, 4, 9, 3, 7,]
+        backgroundColor:['#0E8388','#0E8388', '#0E8388', '#0E8388', '#0E8388', '#0E8388', '#0E8388',],
+        data: [12, 6, 8, 4, 9, 5, 7,]
     }]
 };
 const config = {
