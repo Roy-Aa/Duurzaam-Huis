@@ -174,3 +174,39 @@ header{
     font-size: 3rem;
     font-family: 'Roboto', sans-serif;
 }
+
+.weerbericht2{
+    width: 13rem;
+    height: 13rem;
+    border-radius: 50%;
+    background: #57C5B6;
+    position: absolute;
+    left: 62%;
+    top: 22.5%;
+}
+
+.weerbericht2 p{
+    position: absolute;
+    top: 35%;
+    left: 33%;
+    font-size: 3rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.weerbericht3{
+    width: 13rem;
+    height: 13rem;
+    border-radius: 50%;
+    background: #57C5B6;
+    position: absolute;
+    left: 53%;
+    top: 32%;
+}
+
+.weerbericht3 p{
+    position: absolute;
+    top: 35%;
+    left: 23%;
+    font-size: 3rem;
+    font-family: 'Roboto', sans-serif;
+}

@@ -29,6 +29,12 @@
                 <div class="weerbericht">
                     <p id="gradenHTML"></p>
                 </div>
+                <div class="weerbericht2">
+                    <p id="vochtigheidHTML"></p>
+                </div>
+                <div class="weerbericht3">
+                    <p id="regenHTML"></p>
+                </div>
             </article>
             <article class="box box4"></article>
         </section>
@@ -189,8 +195,7 @@ new Chart(document.getElementById("js--chart--3"), config3)
 // Temp
 
 const gradenHTML = document.getElementById("gradenHTML")
-
-let graden = fetch("https://api.open-meteo.com/v1/forecast?latitude=52.39&longitude=4.86&hourly=temperature_2m&models=best_match&forecast_days=1") 
+let graden = fetch("https://api.open-meteo.com/v1/forecast?latitude=52.39&longitude=4.86&hourly=temperature_2m,relativehumidity_2m,rain&models=best_match&current_weather=true&forecast_days=1") 
     .then(function(response){
         return response.json();
     })
@@ -198,6 +203,31 @@ let graden = fetch("https://api.open-meteo.com/v1/forecast?latitude=52.39&longit
         gradenHTML.innerText = realdata.hourly.temperature_2m[12] + "°C"
     });
 
-    console.log(realdata)
+
+/*Vochtigheid*/
+
+const vochtigheidHTML = document.getElementById("vochtigheidHTML")
+let vochtigheid = fetch("https://api.open-meteo.com/v1/forecast?latitude=52.39&longitude=4.86&hourly=temperature_2m,relativehumidity_2m,rain&models=best_match&current_weather=true&forecast_days=1") 
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(realdata){
+        vochtigheidHTML.innerText = realdata.hourly.relativehumidity_2m[12] + "%"
+    });
+
+
+/*regen*/
+const regenHTML = document.getElementById("regenHTML")
+let regen = fetch("https://api.open-meteo.com/v1/forecast?latitude=52.39&longitude=4.86&hourly=temperature_2m,relativehumidity_2m,rain&models=best_match&current_weather=true&forecast_days=1") 
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(realdata){
+        regenHTML.innerText = realdata.hourly.rain[12] + " mm"
+    });
+
+
 </script>
 </html>
+
+
