@@ -138,7 +138,6 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
 .longbox2{
@@ -157,3 +156,13 @@ header{
     object-fit: cover;
 }
 
+
+.weerbericht{
+    width: 13rem;
+    height: 13rem;
+    border-radius: 50%;
+    background: #57C5B6;
+    position: absolute;
+    left: 53%;
+    top: 12%;
+}
