@@ -145,5 +145,18 @@ const config3 = {
 new Chart(document.getElementById("js--chart--1"), config)
 new Chart(document.getElementById("js--chart--2"), config2)
 new Chart(document.getElementById("js--chart--3"), config3)
+
+
+// Temp
+
+const gradenHTML = document.getElementById("")
+
+let graden = fetch("https://api.open-meteo.com/v1/forecast?latitude=52.39&longitude=4.86&hourly=temperature_2m&models=best_match&forecast_days=1") 
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(realdata){
+        gradenHTML.innerText = realdata.hourly.time.temperature_2m[12]
+    });
 </script>
 </html>
