@@ -26,7 +26,9 @@
                 <canvas id="js--chart--1"></canvas>
             </article>
             <article class="box box3">
-                <div class="weerbericht"></div>
+                <div class="weerbericht">
+                    <p id="gradenHTML"></p>
+                </div>
             </article>
             <article class="box box4"></article>
         </section>
@@ -141,7 +143,7 @@ const data2 = {
     
         label:'Watergebruik per dag in liters',
     
-        backgroundColor:['#0E8388','#0E8388', '#0E8388', '#0E8388', '#0E8388', '#0E8388', '#0E8388',],
+        backgroundColor:['#57C5B6','#159895', '#1A5F7A', '#0E8388', '#57C5B6', '#1A5F7A', '#159895',],
         data: [random1, random2, random3, random4, random5, random6, random7,]
     }]
 };
@@ -182,5 +184,20 @@ const config3 = {
 new Chart(document.getElementById("js--chart--1"), config)
 new Chart(document.getElementById("js--chart--2"), config2)
 new Chart(document.getElementById("js--chart--3"), config3)
+
+
+// Temp
+
+const gradenHTML = document.getElementById("gradenHTML")
+
+let graden = fetch("https://api.open-meteo.com/v1/forecast?latitude=52.39&longitude=4.86&hourly=temperature_2m&models=best_match&forecast_days=1") 
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(realdata){
+        gradenHTML.innerText = realdata.hourly.temperature_2m[12] + "°C"
+    });
+
+    console.log(realdata)
 </script>
 </html>

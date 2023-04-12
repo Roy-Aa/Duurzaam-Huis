@@ -166,3 +166,11 @@ header{
     left: 53%;
     top: 12%;
 }
+
+.weerbericht p{
+    position: absolute;
+    top: 35%;
+    left: 18%;
+    font-size: 3rem;
+    font-family: 'Roboto', sans-serif;
+}
