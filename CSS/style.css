@@ -156,18 +156,3 @@ header{
     height: 100%;
     object-fit: cover;
 }
-
-
-
-
-.weerbericht{
-    height:13rem;
-    width: 13rem;
-    background: #57C5B6;
-    border-radius: 50%;
-    position: absolute;
-    left: 54%;
-    top: 13%;
-    padding: 2rem;
-
-}
