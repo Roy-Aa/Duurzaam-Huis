@@ -30,7 +30,13 @@
                     <p id="gradenHTML"></p>
                 </div>
             </article>
-            <article class="box box4"></article>
+            <article class="box box4">
+                <div class="box4topleft">Account</div>
+                <div class="box4mid">
+                    <div class="box4email">Email: admin@ma-web.nl</div>
+                    <div class="box4password">Password: RKC-ENERGY</div>
+                </div>
+            </article>
         </section>
         <section class="prima">
             <article class="longbox longbox1">
@@ -43,7 +49,6 @@
     </main>
 </body>
 
-    
 <script>
     // JAVASCRIPT
 
@@ -56,27 +61,19 @@
     let random6 = Math.floor(Math.random() * 10) + 1;
     let random7 = Math.floor(Math.random() * 10) + 1;
 
-
     // Datum
     var curday = function(sp){
     today = new Date();
     var dd = today.getDate();
     var mm = today.getMonth()+1; 
     var yyyy = today.getFullYear();
-    
-        
     if(dd<10) dd='0'+dd;
     if(mm<10) mm='0'+mm;
     return (dd+sp+mm+sp+yyyy);
     };
-   
     document.getElementById("js--day").innerHTML = curday('-')
-
     var dt = new Date();
-    
-
     document.getElementById("js--time").innerHTML = dt.toLocaleTimeString();
-
     function getDateTime() {
         var now     = new Date(); 
         var year    = now.getFullYear();
@@ -103,101 +100,91 @@
         var dateTime = +hour+':'+minute+':'+second;   
          return dateTime;
     }
-
-    // example usage: realtime clock
     setInterval(function(){
         currentTime = getDateTime();
         document.getElementById("js--time").innerHTML = currentTime;
     }, 1000);
 
-
+    // Labels & data charts
     const labels = [
-    "Douche",
-    "Kraan",
-    "WC",
-    "Overige",
-];
-
-const data = {
-    labels: labels,
-    datasets: [{
+        "Douche",
+        "Kraan",
+        "WC",
+        "Overige",
+    ];
+    const data = {
+        labels: labels,
+        datasets: [{
+        
+            label:'Liters',
+        
+            backgroundColor:['#002B5B','#1A5F7A', '#159895', '#57C5B6',],
+            data: [random4, random7, random6, random2]
+        }]
+    };
+    const labels2 = [
+        "Maandag",
+        "Dinsdag",
+        "Woensdag",
+        "Donderdag",
+        "Vrijdag",
+        "Zaterdag",
+        "Zondag",
+    ]
+    const data2 = {
+        labels: labels2,
+        datasets: [{
+        
+            label:'Watergebruik per dag in liters',
+        
+            backgroundColor:['#57C5B6','#159895', '#1A5F7A', '#0E8388', '#57C5B6', '#1A5F7A', '#159895',],
+            data: [random1, random2, random3, random4, random5, random6, random7, 10,]
+        }]
+    };
+    const labels3 = [
+        "Maandag",
+        "Dinsdag",
+        "Woensdag",
+        "Donderdag",
+        "Vrijdag",
+        "Zaterdag",
+        "Zondag",
+    ]
+    const data3 = {
+        labels: labels2,
+        datasets: [{
+        
+            label:'Stroomgebruik per dag in KwH',
+        
+            backgroundColor:['#0E8388','#0E8388', '#0E8388', '#0E8388', '#0E8388', '#0E8388', '#0E8388',],
+            data: [random1, random2, random3, random4, random5, random6, random7, 10,]
+        }]
+    };
+    const config = {
+        type: 'doughnut',
+        data: data,
     
-        label:'Liters',
-    
-        backgroundColor:['#002B5B','#1A5F7A', '#159895', '#57C5B6',],
-        data: [random4, random7, random6, random2]
-    }]
-};
-const labels2 = [
-    "Maandag",
-    "Dinsdag",
-    "Woensdag",
-    "Donderdag",
-    "Vrijdag",
-    "Zaterdag",
-    "Zondag",
-]
-const data2 = {
-    labels: labels2,
-    datasets: [{
-    
-        label:'Watergebruik per dag in liters',
-    
-        backgroundColor:['#57C5B6','#159895', '#1A5F7A', '#0E8388', '#57C5B6', '#1A5F7A', '#159895',],
-        data: [random1, random2, random3, random4, random5, random6, random7,]
-    }]
-};
+    };
+    const config2 = {
+        type:'bar',
+        data: data2,
+    }
+    const config3 = {
+        type:'line',
+        data: data3,
+    }
+    new Chart(document.getElementById("js--chart--1"), config)
+    new Chart(document.getElementById("js--chart--2"), config2)
+    new Chart(document.getElementById("js--chart--3"), config3)
 
-const labels3 = [
-    "Maandag",
-    "Dinsdag",
-    "Woensdag",
-    "Donderdag",
-    "Vrijdag",
-    "Zaterdag",
-    "Zondag",
-]
-const data3 = {
-    labels: labels2,
-    datasets: [{
-    
-        label:'Stroomgebruik per dag in KwH',
-    
-        backgroundColor:['#0E8388','#0E8388', '#0E8388', '#0E8388', '#0E8388', '#0E8388', '#0E8388',],
-        data: [random1, random2, random3, random4, random5, random6, random7,]
-    }]
-};
-
-const config = {
-    type: 'doughnut',
-    data: data,
-   
-};
-const config2 = {
-    type:'bar',
-    data: data2,
-}
-const config3 = {
-    type:'line',
-    data: data3,
-}
-new Chart(document.getElementById("js--chart--1"), config)
-new Chart(document.getElementById("js--chart--2"), config2)
-new Chart(document.getElementById("js--chart--3"), config3)
-
-
-// Temp
-
-const gradenHTML = document.getElementById("gradenHTML")
-
-let graden = fetch("https://api.open-meteo.com/v1/forecast?latitude=52.39&longitude=4.86&hourly=temperature_2m&models=best_match&forecast_days=1") 
-    .then(function(response){
-        return response.json();
-    })
-    .then(function(realdata){
-        gradenHTML.innerText = realdata.hourly.temperature_2m[12] + "°C"
-    });
-
-    console.log(realdata)
+    // Temp
+    const gradenHTML = document.getElementById("gradenHTML")
+    let graden = fetch("https://api.open-meteo.com/v1/forecast?latitude=52.39&longitude=4.86&hourly=temperature_2m&models=best_match&forecast_days=1") 
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(realdata){
+            gradenHTML.innerText = realdata.hourly.temperature_2m[12] + "°C"
+        });
 </script>
 </html>

@@ -55,8 +55,27 @@ header{
 .box1{
     grid-column: 1/4;
     grid-row: span 5;
-    
-    
+}
+
+.box1-blok1{
+    height: 200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: 500;
+}
+
+.box1-blok2{
+    height: 191px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: 500;
+    border-top: 0.2rem solid black;
 }
 
 .box2{
@@ -91,28 +110,41 @@ header{
 .box4{
     grid-column: 5/8;
     grid-row: span 1;
-    
 }
 
-.box1-blok1{
-    height: 200px;
+.box4topleft{
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4rem;
-    font-weight: 500;
+    height: 6rem;
+    padding: 1.5rem;
+    border-bottom: solid black 2px;
+    border-radius: 5px;
+    font-size: 2.5rem;
+    font-family: 'Roboto', sans-serif;
 }
 
-.box1-blok2{
-    height: 191px;
+.box4mid{
+    height: 15rem;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4rem;
-    font-weight: 500;
-    border-top: 0.2rem solid black;
+    margin-top: 2rem;
+}
+
+.box4email{
+    width: 90%;
+    height: 4rem;
+    border-radius: 5px;
+    margin-left: 20px;
+    padding: 6px;
+    border: solid black 2px;
+}
+
+.box4password{
+    margin-top: 1rem;
+    width: 90%;
+    height: 4rem;
+    border-radius: 5px;
+    margin-left: 20px;
+    padding: 6px;
+    border: solid black 2px;
 }
 
 .prima{
