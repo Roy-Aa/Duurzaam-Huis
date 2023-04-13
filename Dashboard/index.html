@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>⚡ RKC-ENERGY</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <p>RKC-ENERGY</p>
+    </header>
+    <main class="dash">
+        <section class="marco">
+            <article class="box box1">
+                <div class="box1-blok1" id="js--day"></div>
+                <div class="box1-blok2" id="js--time"></div>
+            </article>
+            <article class="box box2">
+                <canvas id="js--chart--1"></canvas>
+            </article>
+            <article class="box box3">
+                <div class="weerbericht">
+                    <p id="gradenHTML"></p>
+                </div>
+                <div class="weerbericht2">
+                    <p id="vochtigheidHTML"></p>
+                </div>
+                <div class="weerbericht3">
+                    <p id="regenHTML"></p>
+                </div>
+            </article>
+            <article class="box box4">
+                <div class="box4boxboven">
+                    <div class="box4boxmid">Sunrise
+                        <p id="sunriseHTML"></p>
+                    </div>
+                </div>
+                <div class="box4boxonder">
+                    <div class="box4boxmid">Sunset
+                        <p id="sunsetHTML"></p>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <section class="prima">
+            <article class="longbox longbox1">
+                <canvas id="js--chart--2"></canvas>
+            </article>
+            <article class="longbox longbox2">
+                <canvas id="js--chart--3"></canvas>
+            </article>
+        </section>
+    </main>
+</body>
+
+    
+<script>
+    // JAVASCRIPT
+
+    // Random nummer
+    let random1 = Math.floor(Math.random() * 10) + 1;
+    let random2 = Math.floor(Math.random() * 10) + 1;
+    let random3 = Math.floor(Math.random() * 10) + 1;
+    let random4 = Math.floor(Math.random() * 10) + 1;
+    let random5 = Math.floor(Math.random() * 10) + 1;
+    let random6 = Math.floor(Math.random() * 10) + 1;
+    let random7 = Math.floor(Math.random() * 10) + 1;
+    let random8 = Math.floor(Math.random() * 10) + 1;
+    let random9 = Math.floor(Math.random() * 10) + 1;
+    let random10 = Math.floor(Math.random() * 10) + 1;
+    let random11 = Math.floor(Math.random() * 10) + 1;
+    let random12 = Math.floor(Math.random() * 10) + 1;
+    let random13 = Math.floor(Math.random() * 10) + 1;
+    let random14 = Math.floor(Math.random() * 10) + 1;
+
+
+    // Datum
+    var curday = function(sp){
+    today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; 
+    var yyyy = today.getFullYear();
+    if(dd<10) dd='0'+dd;
+    if(mm<10) mm='0'+mm;
+    return (dd+sp+mm+sp+yyyy);
+    };
+    document.getElementById("js--day").innerHTML = curday('-')
+    var dt = new Date();
+    document.getElementById("js--time").innerHTML = dt.toLocaleTimeString();
+
+    function getDateTime() {
+        var now     = new Date(); 
+        var year    = now.getFullYear();
+        var month   = now.getMonth()+1; 
+        var day     = now.getDate();
+        var hour    = now.getHours();
+        var minute  = now.getMinutes();
+        var second  = now.getSeconds(); 
+        if(month.toString().length == 1) {
+             month = '0'+month;
+        }
+        if(day.toString().length == 1) {
+             day = '0'+day;
+        }   
+        if(hour.toString().length == 1) {
+             hour = '0'+hour;
+        }
+        if(minute.toString().length == 1) {
+             minute = '0'+minute;
+        }
+        if(second.toString().length == 1) {
+             second = '0'+second;
+        }   
+        var dateTime = +hour+':'+minute+':'+second;   
+         return dateTime;
+    }
+    setInterval(function(){
+        currentTime = getDateTime();
+        document.getElementById("js--time").innerHTML = currentTime;
+    }, 1000);
+    const labels = [
+    "Douche",
+    "Kraan",
+    "WC",
+    "Overige",
+    ];
+    const data = {
+        labels: labels,
+        datasets: [{
+        
+            label:'Liters',
+        
+            backgroundColor:['#002B5B','#1A5F7A', '#159895', '#57C5B6',],
+            data: [random4, random7, random6, random2]
+        }]
+    };
+    const labels2 = [
+        "Maandag",
+        "Dinsdag",
+        "Woensdag",
+        "Donderdag",
+        "Vrijdag",
+        "Zaterdag",
+        "Zondag",
+    ]
+    const data2 = {
+        labels: labels2,
+        datasets: [{
+        
+            label:'Watergebruik per dag in liters',
+        
+            backgroundColor:['#57C5B6','#159895', '#1A5F7A', '#0E8388', '#57C5B6', '#1A5F7A', '#159895',],
+            data: [random1, random2, random3, random4, random5, random6, random7,]
+        }]
+    };
+    const labels3 = [
+        "Maandag",
+        "Dinsdag",
+        "Woensdag",
+        "Donderdag",
+        "Vrijdag",
+        "Zaterdag",
+        "Zondag",
+    ]
+    const data3 = {
+        labels: labels2,
+        datasets: [{
+        
+            label:'Stroomgebruik per dag in KwH',
+        
+            backgroundColor:['#0E8388','#0E8388', '#0E8388', '#0E8388', '#0E8388', '#0E8388', '#0E8388',],
+            data: [random8, random9, random10, random11, random12, random13, random14,]
+        }]
+    };
+    const config = {
+        type: 'doughnut',
+        data: data,
+    
+    };
+    const config2 = {
+        type:'bar',
+        data: data2,
+    }
+    const config3 = {
+        type:'line',
+        data: data3,
+    }
+    new Chart(document.getElementById("js--chart--1"), config)
+    new Chart(document.getElementById("js--chart--2"), config2)
+    new Chart(document.getElementById("js--chart--3"), config3)
+
+    // Temp
+    const gradenHTML = document.getElementById("gradenHTML")
+    let graden = fetch("https://api.open-meteo.com/v1/forecast?latitude=52.39&longitude=4.86&hourly=temperature_2m,relativehumidity_2m,rain&models=best_match&current_weather=true&forecast_days=1") 
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(realdata){
+            gradenHTML.innerText = realdata.hourly.temperature_2m[12] + "°C"
+        });
+
+    /*Vochtigheid*/
+    const vochtigheidHTML = document.getElementById("vochtigheidHTML")
+    let vochtigheid = fetch("https://api.open-meteo.com/v1/forecast?latitude=52.39&longitude=4.86&hourly=temperature_2m,relativehumidity_2m,rain&models=best_match&current_weather=true&forecast_days=1") 
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(realdata){
+            vochtigheidHTML.innerText = realdata.hourly.relativehumidity_2m[12] + "%"
+        });
+
+    /*regen*/
+    const regenHTML = document.getElementById("regenHTML")
+    let sunset = fetch("https://api.open-meteo.com/v1/forecast?latitude=52.39&longitude=4.86&hourly=temperature_2m,relativehumidity_2m,rain&models=best_match&current_weather=true&forecast_days=1") 
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(realdata){
+            regenHTML.innerText = realdata.hourly.rain[12] + " mm"
+        });
+
+    // Sunrise
+    const sunriseHTML = document.getElementById("sunriseHTML")
+    let sunrise = fetch("https://api.open-meteo.com/v1/forecast?latitude=52.39&longitude=4.86&hourly=temperature_2m,relativehumidity_2m,rain&daily=sunrise,sunset&current_weather=true&timezone=Europe%2FBerlin") 
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(realdata){
+            sunriseHTML.innerText = realdata.daily.sunrise[0]
+        });
+
+    // Sunset
+    const sunsetHTML = document.getElementById("sunsetHTML")
+    let regen = fetch("https://api.open-meteo.com/v1/forecast?latitude=52.39&longitude=4.86&hourly=temperature_2m,relativehumidity_2m,rain&daily=sunrise,sunset&current_weather=true&timezone=Europe%2FBerlin") 
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(realdata){
+            sunsetHTML.innerText = realdata.daily.sunset[0]
+        });
+</script>
+</html>
+
+
